@@ -23,43 +23,17 @@ def merge(arrA, arrB):
         j+=1
         k+=1
 
-    # return merged_arr
-# test_array1 = [1,3,4,5]
-# test_array2 = [2,6,7,8,9]
-# print(merge(test_array1, test_array2))
+    return merged_arr
 
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
 #     # Your code here
-    if len(arr) >1:
-        mid = len(arr) // 2
-        left = arr[:mid]
-        right = arr[mid:]
-
-        merge_sort(left)
-        merge_sort(right)
-
-        merge(left, right)
-        # i, j, k = 0, 0, 0
-
-        # while i< len(left) and j < len(right):
-        #     if left[i] < right[j]:
-        #         arr[k] = left[i]
-        #         i+= 1
-        #     else:
-        #         arr[k] = right[j]
-        #         j+= 1
-        #     k+=1
-        # while i < len(left):
-        #     arr[k] = left[i]
-        #     i+= 1
-        #     k+= 1
-        # while j < len(right):
-        #     arr[k] = right[j]
-        #     j+= 1
-        #     k+= 1
-
-    return arr
+    if len(arr) < 2:
+        return arr
+    mid = len(arr) // 2
+    left = arr[:mid]
+    right = arr[mid:]
+    return merge(merge_sort(left), merge_sort(right))
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
 # utilize any extra memory
